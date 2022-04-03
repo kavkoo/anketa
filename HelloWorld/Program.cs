@@ -5,7 +5,15 @@ string name = Console.ReadLine();
 Console.WriteLine("Сколько ему лет?");
 string ageString = Console.ReadLine();
 
-int age = int.Parse(ageString);
+int age;
+bool success = int.TryParse(ageString, out age);
+
+if(!success)
+{
+    Console.WriteLine($"Необходимо ввести целое число");
+    Console.WriteLine();
+    return;
+}
 
 if (age < 25)
 {

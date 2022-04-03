@@ -10,6 +10,12 @@ public class Program
 
         int age = GetAge();
 
+        if(age < 25)
+        {
+            Console.WriteLine("Ага! По молодым прибиваешься?");
+            return;
+        }
+
         Console.WriteLine("Сколько раз ты его любишь?");
         string numberSring = Console.ReadLine();
 
@@ -32,17 +38,12 @@ public class Program
         int age;
         bool success = int.TryParse(ageString, out age);
 
-        if(!success)
+        while(!success)
         {
-            Console.WriteLine($"Необходимо ввести целое число");
             Console.WriteLine();
-            throw new Exception("Не могу распарсить! ААААА");
-        }
-
-        if(age < 25)
-        {
-            Console.WriteLine("Ага! По молодым прибиваешься?");
-            throw new Exception("ААА, педофила поймали!");
+            Console.WriteLine($"Необходимо ввести целое число, попробуй ещё раз:");
+            ageString = Console.ReadLine();
+            success = int.TryParse(ageString, out age);
         }
 
         return age;

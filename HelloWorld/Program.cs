@@ -1,35 +1,48 @@
-﻿Console.ForegroundColor = (ConsoleColor)14;
-Console.WriteLine("Кого ты любишь?");
-string name = Console.ReadLine();
+﻿namespace HelloWorld;
 
-Console.WriteLine("Сколько ему лет?");
-string ageString = Console.ReadLine();
-
-int age;
-bool success = int.TryParse(ageString, out age);
-
-if(!success)
+public class Program
 {
-    Console.WriteLine($"Необходимо ввести целое число");
-    Console.WriteLine();
-    return;
-}
+    public static void Main()
+    {
+        Console.ForegroundColor = (ConsoleColor)14;
+        Console.WriteLine("Кого ты любишь?");
+        string name = Console.ReadLine();
 
-if (age < 25)
-{
-    Console.WriteLine("Ага! По молодым прибиваешься?");
-    return;
-}
+        Console.WriteLine("Сколько ему лет?");
+        string ageString = Console.ReadLine();
 
-Console.WriteLine("Сколько раз ты его любишь?");
-string numberSring = Console.ReadLine();
+        int age;
+        bool success = int.TryParse(ageString, out age);
 
-int times = int.Parse(numberSring);
+        if(!success)
+        {
+            Console.WriteLine($"Необходимо ввести целое число");
+            Console.WriteLine();
+            return;
+        }
 
-Console.ForegroundColor = (ConsoleColor)13;
+        if (age < 25)
+        {
+            Console.WriteLine("Ага! По молодым прибиваешься?");
+            return;
+        }
 
-for(int i = 0; i < times; i++)
-{
-    Console.WriteLine($"{i+1}. Я люблю {name} =)\nЕму {ageString} года\nЯ люблю {numberSring} раз");
-    Console.WriteLine();
+        Console.WriteLine("Сколько раз ты его любишь?");
+        string numberSring = Console.ReadLine();
+
+        int times = int.Parse(numberSring);
+
+        Console.ForegroundColor = (ConsoleColor)13;
+
+        for(int i = 0; i < times; i++)
+        {
+            Console.WriteLine($"{i+1}. Я люблю {name} =)\nЕму {ageString} года\nЯ люблю {numberSring} раз");
+            Console.WriteLine();
+        }
+    }
+
+    private int GetAge()
+    {
+
+    }
 }

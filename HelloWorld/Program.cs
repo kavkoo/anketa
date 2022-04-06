@@ -13,7 +13,7 @@ public class Program
         if(age < 25)
         {
             Console.WriteLine("Ага! По молодым прибиваешься?");
-            return;;
+            return;
         }
 
         Console.WriteLine("Сколько раз ты его любишь?");

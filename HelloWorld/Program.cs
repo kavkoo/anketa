@@ -2,18 +2,18 @@
 
 public class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         Console.ForegroundColor = (ConsoleColor)14;
-        Console.WriteLine("Кого ты любишь?");
-        string name = Console.ReadLine();
+
+        string name = GetName(args);
 
         int age = GetAge();
 
         if(age < 25)
         {
             Console.WriteLine("Ага! По молодым прибиваешься?");
-            return;
+            return;;
         }
 
         Console.WriteLine("Сколько раз ты его любишь?");
@@ -28,6 +28,24 @@ public class Program
             Console.WriteLine($"{i+1}. Я люблю {name} =)\nЕму {age} года\nЯ люблю {numberSring} раз");
             Console.WriteLine();
         }
+    }
+
+    private static string GetName(string[] args)
+    {
+        int len = args.Length;
+        Console.WriteLine("Кого ты любишь?");
+        string name;
+        if(len>=1)
+        {
+            name = args[0];
+            Console.WriteLine($"{args[0]}");
+        }
+        else
+        {
+            name = Console.ReadLine();
+        }
+
+        return name;
     }
 
     private static int GetAge()

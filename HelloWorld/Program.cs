@@ -9,27 +9,32 @@ public class Program
         string name = GetName(args);
 
         int age = GetAge();
-
+        
         if(age < 25)
         {
             Console.WriteLine("Ага! По молодым прибиваешься?");
             return;
         }
 
-        Console.WriteLine("Сколько раз ты его любишь?");
-        string numberSring = Console.ReadLine();
-
-        int times = int.Parse(numberSring);
+        int times = GetNumber();
 
         Console.ForegroundColor = (ConsoleColor)13;
-
         for(int i = 0; i < times; i++)
         {
-            Console.WriteLine($"{i+1}. Я люблю {name} =)\nЕму {age} года\nЯ люблю {numberSring} раз");
+            Console.WriteLine($"{i+1}. Я люблю {name} =)\nЕму {age} года\nЯ люблю {times} раз");
             Console.WriteLine();
         }
     }
 
+    private static int GetNumber()
+    {
+        Console.WriteLine("Сколько раз ты его любишь?");
+        string numberSring = Console.ReadLine();
+        int times = int.Parse(numberSring);
+
+        return times;
+    }
+    
     private static string GetName(string[] args)
     {
         int len = args.Length;
@@ -66,4 +71,4 @@ public class Program
 
         return age;
     }
-}
+} 
